@@ -2,19 +2,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-    <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-        <h1> exampl page</h1>
-        <form name="formPage" method="post" runat="server">
-            name: <input type="text" name="firstname" id="firstname" placeholder="example" />
-            <br />
-            favorite workouts:
-            <br />
-            cardio: <input type="checkbox" name="check2" checked value="cardio" id="check_1" /><br />
-            strength training: <input type="checkbox" name="check2" checked value="strength training" id="check_2" /><br />
-            HIIT: <input type="checkbox" name="check2" checked value="HIIT" id="check_3" /><br />
-            flexibility training: <input type="checkbox" name="check2" checked value="flexibility training" id="check_4" /><br />
-            core training: <input type="checkbox" name="check2" checked value="core training" id="check_5" /><br />
 
-</form>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <h1>example page</h1>
+
+    <div>
+        name: <input type="text" name="firstname" id="firstname" placeholder="example" />
+        <br />
+        
+        favorite workouts:
+        <br />
+        
+        cardio: <input type="checkbox" name="check2" value="cardio" id="check_1" checked="checked" /><br />
+        strength training: <input type="checkbox" name="check2" value="strength training" id="check_2" checked="checked" /><br />
+        HIIT: <input type="checkbox" name="check2" value="HIIT" id="check_3" checked="checked" /><br />
+        flexibility training: <input type="checkbox" name="check2" value="flexibility training" id="check_4" checked="checked" /><br />
+        core training: <input type="checkbox" name="check2" value="core training" id="check_5" checked="checked" /><br />
+    </div>
+
 </asp:Content>
-
