@@ -9,24 +9,34 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   <h2>My Fitness Journey</h2>
+    <form id="form1" runat="server">
+        
+        <h2>My Fitness Journey</h2>
 
-<table style="width:100%">
-  <tr>
-   <th colspan="2">HOME</th>
-    <th>Menu</th>
-  </tr>
-     <tr style="height:800px">
-    <td colspan="2"> </td>
-        <td style="width:200px; padding:10px;">
-            <a href="index.html">Home</a><br><br>
-            <a href="about.html">About</a><br><br>
-            <a href="workouts.html">Workouts</a><br><br>
-            <a href="nutrition.html">Nutrition</a><br><br>
-            <a href="progress.html">Progress</a><br><br>
-            <a href="contact.html">Contact</a><br>
-        </td>
-  </tr>
-</table>
+        <table style="width:100%">
+            <tr>
+                <th colspan="2">HOME</th>
+                <th>Menu</th>
+            </tr>
+            <tr style="height:800px">
+                <td colspan="2" style="vertical-align: top;">
+                    
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </td>
+                
+                <td style="width:200px; padding:10px; vertical-align: top;">
+                    <a href="index.html">Home</a><br><br>
+                    <a href="about.html">About</a><br><br>
+                    <a href="workouts.html">Workouts</a><br><br>
+                    <a href="nutrition.html">Nutrition</a><br><br>
+                    <a href="progress.html">Progress</a><br><br>
+                    <a href="contact.html">Contact</a><br>
+                </td>
+            </tr>
+        </table>
+
+    </form>
 </body>
 </html>
