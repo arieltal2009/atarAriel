@@ -4,39 +4,140 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <title>FitLife</title>
+
+    <style> 
+      body {
+        width: auto;
+        direction: ltr;
+        background-color: black;
+        color: white;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .mpTable {
+        width: 100%;
+        border: 1px solid gray;
+      }
+
+      .mpheader {
+        width: 100%;
+        border: 1px solid gray;
+        height: 80px;
+        text-align:center;
+      }
+
+      .mpMenu {
+        width: 100%;
+        border: 1px solid gray;
+        height: 30px;
+        text-align:center;
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .mpMain {
+        width: 100%;
+        border: 1px solid gray;
+        height: 400px;
+      }
+
+      .mpH1 {
+        color: white;
+        text-align:center;
+        font-family: Arial;
+      }
+
+      h1,h2,h3,h4,h5,h6, div {
+        text-align: center;
+      }
+
+      .mpMenuItem {
+        margin:5px;
+        padding:5px 10px;
+        background-color:white;
+        color:black;
+        font-family: Arial;
+        border-radius: 10px;
+        border: 1px solid gray;
+        text-decoration: none;
+      }
+
+    </style>
+
+    <script>
+      setInterval("myTimer()", 1000);
+
+      function myTimer() {
+          var d = new Date();
+          var time = d.toLocaleTimeString();
+          var date = d.toLocaleDateString();
+          document.getElementById("myTime").innerHTML = date + "<br />" + time;
+      }
+    </script>
+
+    <!-- Head Place Holder -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
 </head>
+
 <body>
-    <form id="form1" runat="server">
-        
-        <h2>My Fitness Journey</h2>
 
-        <table style="width:100%">
-            <tr>
-                <th colspan="2">HOME</th>
-                <th>Menu</th>
-            </tr>
-            <tr style="height:800px">
-                <td colspan="2" style="vertical-align: top;">
-                    
-                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
+  <table class="mpTable">
 
-                </td>
-                
-                <td style="width:200px; padding:10px; vertical-align: top;">
-                    <a href="index.html">Home</a><br><br>
-                    <a href="about.html">About</a><br><br>
-                    <a href="workouts.html">Workouts</a><br><br>
-                    <a href="nutrition.html">Nutrition</a><br><br>
-                    <a href="progress.html">Progress</a><br><br>
-                    <a href="contact.html">Contact</a><br>
-                </td>
-            </tr>
-        </table>
+    <!-- HEADER -->
+    <tr class="mpheader">
 
-    </form>
+      <td style="width:20%">
+        Welcome to my website
+      </td>
+
+      <td style="width:60%"> 
+        <h1 class="mpH1">FitLife</h1>
+      </td>
+
+      <td style="width:20%"> 
+        <h2 id="myTime"></h2>
+      </td>
+
+    </tr>
+
+    <!-- MENU -->
+    <tr>
+      <td colspan="3" class="mpMenu">
+
+        <a href="workouts.aspx" class="mpMenuItem">Workouts</a>
+        <a href="nutrition.aspx" class="mpMenuItem">Nutrition</a>
+        <a href="about.aspx" class="mpMenuItem">About</a>
+        <a href="login.aspx" class="mpMenuItem">Login</a>
+        <a href="register.aspx" class="mpMenuItem">Sign Up</a>
+
+      </td>
+    </tr>
+
+    <!-- CONTENT -->
+    <tr>
+      <td colspan="3" class="mpMain">
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+      </td>
+    </tr>
+
+    <!-- FOOTER -->
+    <tr>
+      <td colspan="3" class="mpMenu">
+
+        Written by Ariel Tal
+
+      </td>
+    </tr>
+
+  </table>
+
 </body>
 </html>
