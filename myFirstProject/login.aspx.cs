@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +21,8 @@ public partial class login : System.Web.UI.Page
             // התחברות מנהל
             if (email == "ArielMenahel@gmail.com" && pass == "menahel1234")
             {
+                Session["manager"] = "ok";
+                Session["name"] = "ariel tal";
                 Response.Redirect("manager.aspx");
             }
             else
@@ -32,12 +35,20 @@ public partial class login : System.Web.UI.Page
 
                 bool userExists = MyAdoHelper.IsExist(sql);
 
-                if (!userExists)
+                if (userExists)
                 {
-                    st = "אימייל או סיסמה שגויים";
-                }
+
+                    DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
+
+                    if(dt.Rows.Count == 0)
+                    {
+                        st = "Email or password are incorrect";
+                    }
+                
                 else
                 {
+                    Session["manager"] = "ok";
+                    Session["name"] = dt.Rows[0]["fn"];
                     Response.Redirect("home.aspx");
                 }
             }

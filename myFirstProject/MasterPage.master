@@ -114,7 +114,19 @@
         <a href="about.aspx" class="mpMenuItem">About</a>
         <a href="login.aspx" class="mpMenuItem">Login</a>
         <a href="register.aspx" class="mpMenuItem">Sign Up</a>
+          <%if (Session["manager"] == "ok")
+            {%>
+          Hello <%=Session["name"] %>
 
+           <% } %>
+        <a href="manager.aspx" class="mpMenuItem">Manager</a>
+           <a href="home.aspx" class="mpMenuItem">Home</a>
+           <%if (Session["manager"] == "ok"|| Session["user"] == "ok")
+   {%>
+ Hello <%=Session["name"] %>
+
+  <% } %>
+           <a href="logout.aspx" class="mpMenuItem">logout</a>
       </td>
     </tr>
 
