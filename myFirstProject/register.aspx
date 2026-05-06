@@ -1,25 +1,65 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="register.aspx.cs" Inherits="register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script language="javascript">
+    function checkAll() {
+        FullNameErr.innerHTML = "";
+        passwordErr.innerHTML = "";
+
+        f = true;
+
+        if (checkFullName() == false)
+            f = false;
+        if (checkpassword() == false)
+            f = false;
+
+        return f;
+    }// סוף פעולה ראשית
+
+    function checkFullName() {
+        FullName = document.getElementById("FullName").value;
+        //alert(name);
+
+        if (FullName.length < 2 || FullName.length > 30) {
+            FullNameErr.innerHTML = "name's length is invalid";
+            return false;
+        }
+        return true;
+    } // סוף בדיקת שם
+
+    function checkpassword() {
+        password = document.getElementById("Password").value;
+        //alert(name);
+
+        if (password.length < 2 || password.length > 30) {
+            passwordErr.innerHTML = "password's length is invalid";
+            return false;
+        }
+        return true;
+    } // סוף בדיקת XXX
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1>Sign up</h1>
 
     <div>
 
-        <form runat="server" methd="post">
+        <form runat="server" method="post" onsubmit="return checkAll();">
 
         Full Name:
         <input type="text" name="FullName" id="FullName" />
+            <span id="FullNameErr"></span>
         <br /><br />
 
-        Email Address:
-        <input type="email" name="EmailAddress" id="EmailAddress" />
-        <br /><br />
 
         Password:
         <input type="password" name="Password" id="Password" />
+            <span id="passwordErr"></span>
         <br /><br />
+
+            Email Address:
+<input type="email" name="EmailAddress" id="EmailAddress" />
+<br /><br />
 
         Age:
         <br />

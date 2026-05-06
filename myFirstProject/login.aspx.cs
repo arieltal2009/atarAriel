@@ -33,22 +33,18 @@ public partial class login : System.Web.UI.Page
                     "WHERE EmailAddress = N'" + email + "' " +
                     "AND Password = N'" + pass + "'";
 
-                bool userExists = MyAdoHelper.IsExist(sql);
+                //bool userExists = MyAdoHelper.IsExist(sql);
 
-                if (userExists)
+                DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
+
+                if (dt.Rows.Count == 0)
                 {
-
-                    DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
-
-                    if(dt.Rows.Count == 0)
-                    {
-                        st = "Email or password are incorrect";
-                    }
-                
+                    st = "Email or password are incorrect";
+                }
                 else
                 {
-                    Session["manager"] = "ok";
-                    Session["name"] = dt.Rows[0]["fn"];
+                    Session["user"] = "ok";
+                    Session["name"] = dt.Rows[0]["FullName"];
                     Response.Redirect("home.aspx");
                 }
             }
